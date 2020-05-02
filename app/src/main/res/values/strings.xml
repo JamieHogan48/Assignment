@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Jamies Clothing App</string>
+    <string name="button_addClothes">Add Item</string>
+    <string name="hint_clothesTitle">Type of Clothing</string>
+    <string name="hint_ClothesColour">Colour </string>
+    <string name="menu_addClothes">Add</string>
+    <string name="menu_cancelClothes">Cancel</string>
+    <string name="enter_clothing_title"> Please Enter a piece of clothing </string>
+    <string name="save_clothes"> Update Clothing </string>
+    <string name="button_addImage"> Add Image </string>
+    <string name="select_clothes_image">Select Clothing image</string>
+    <string name="change_clothing_image">Update Clothing image</string>
+    <string name="clothing_image">clothing image</string>
+    <string name="button_location">Set Location</string>
+    <string name="menu_deleteClothing">Delete</string>
+    <string name="title_activity_maps">Map</string>
+
+</resources>
