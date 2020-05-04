@@ -19,6 +19,7 @@ interface ClothesListener {
 class ClothesAdapter constructor(private var clothes: List<ClothesModel>
                                   , private val listener: ClothesListener) : RecyclerView.Adapter<ClothesAdapter.MainHolder>() {
 
+    //load in the card view for items created
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
             LayoutInflater.from(parent?.context).inflate(
@@ -34,12 +35,14 @@ class ClothesAdapter constructor(private var clothes: List<ClothesModel>
         holder.bind(clothing, listener)
     }
 
+    //get the amount of clothes stored in the app
     override fun getItemCount(): Int = clothes.size
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(clothes: ClothesModel, listener : ClothesListener) {
             itemView.clothesTitle.text = clothes.title
+            itemView.brand.text = clothes.brand
             itemView.description.text = clothes.colour
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, clothes.image))
             itemView.setOnClickListener {

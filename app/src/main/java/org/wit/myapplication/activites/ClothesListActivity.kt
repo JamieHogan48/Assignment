@@ -27,14 +27,14 @@ class ClothesListActivity : AppCompatActivity(), ClothesListener  {
         val layoutManager =
             LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        //recyclerView.adapter = ClothesAdapter(app.clothes)
-        //recyclerView.adapter = ClothesAdapter(app.clothes.findAll())
         recyclerView.adapter = ClothesAdapter(app.clothes.findAll(), this)
         loadClothes();
 
         toolbarMain.title = title
         setSupportActionBar(toolbarMain)
     }
+
+    //Handle the layout for the main screen
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -53,8 +53,6 @@ class ClothesListActivity : AppCompatActivity(), ClothesListener  {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //recyclerView is a widget in activity_clothes_list.xml
-        //recyclerView.adapter?.notifyDataSetChanged()
         loadClothes();
         super.onActivityResult(requestCode, resultCode, data)
     }

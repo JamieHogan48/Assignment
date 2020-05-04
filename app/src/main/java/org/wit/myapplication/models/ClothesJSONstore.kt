@@ -31,9 +31,9 @@ class ClothesJSONstore : ClothesStore, AnkoLogger {
         return clothes
     }
 
-    override fun create(placemark: ClothesModel) {
-        placemark.id = generateRandomId()
-        clothes.add(placemark)
+    override fun create(clothing: ClothesModel) {
+        clothing.id = generateRandomId()
+        clothes.add(clothing)
         serialize()
     }
 
@@ -42,6 +42,7 @@ class ClothesJSONstore : ClothesStore, AnkoLogger {
         var foundClothing: ClothesModel? = clothesList.find { p -> p.id == clothing.id }
         if (foundClothing != null) {
             foundClothing.title = clothing.title
+            foundClothing.brand = clothing.brand
             foundClothing.colour = clothing.colour
             foundClothing.image = clothing.image
         }

@@ -51,6 +51,23 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"/>
 
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="@string/menu_Brand"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"/>
+
+
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/colour"
                     android:layout_width="match_parent"

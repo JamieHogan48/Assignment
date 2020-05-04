@@ -35,12 +35,13 @@ class ClothesActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clothes)
         app = application as MainApp
-        info("Jamies App Main Activity started..")
+        info("Jamies Dreamlist App Main Activity started..")
         var edit = false;
 
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
 
+        //handle shop location and setting start location values (wit)
         ShopLocation.setOnClickListener {
             info ("Set Item Pressed")
             val location = Location(52.245696, -7.139102, 15f)
@@ -55,11 +56,12 @@ class ClothesActivity : AppCompatActivity(), AnkoLogger {
 
 
 
-
+        //Loading the content into the text fields
         if (intent.hasExtra("clothing_edit")) {
             edit = true
             clothes = intent.extras.getParcelable<ClothesModel>("clothing_edit")
             clothesTitle.setText(clothes.title)
+            brand.setText(clothes.brand)
             colour.setText(clothes.colour)
             clothesImage.setImageBitmap(readImageFromPath(this, clothes.image))
             if (clothes.image != null) {
@@ -68,8 +70,10 @@ class ClothesActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_clothes)
         }
 
+        //what does the add button do
         btnAdd.setOnClickListener() {
             clothes.title = clothesTitle.text.toString()
+            clothes.brand = brand.text.toString()
             clothes.colour = colour.text.toString()
                 if (clothes.title.isEmpty()) {
                     toast(R.string.enter_clothing_title)
@@ -84,6 +88,8 @@ class ClothesActivity : AppCompatActivity(), AnkoLogger {
             setResult(AppCompatActivity.RESULT_OK)
             finish()
         }
+
+        //handle select image button
         chooseImage.setOnClickListener {
             info ("Select image")
             showImagePicker(this, IMAGE_REQUEST)
@@ -96,6 +102,7 @@ class ClothesActivity : AppCompatActivity(), AnkoLogger {
         return super.onCreateOptionsMenu(menu)
     }
 
+    //handle the options menu on the add screen  (delete and cancel)
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_delete -> {

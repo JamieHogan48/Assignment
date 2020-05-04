@@ -1,7 +1,7 @@
 package org.wit.myapplication.models
 
-import org.wit.myapplication.models.ClothesModel
 
+//these methods must be implamented
 
 interface ClothesStore {
     fun findAll(): List<ClothesModel>

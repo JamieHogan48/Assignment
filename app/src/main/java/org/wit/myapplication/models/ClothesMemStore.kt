@@ -10,22 +10,26 @@ internal fun getId(): Long {
 }
 
 class ClothesMemStore : ClothesStore, AnkoLogger {
-
+//create the arraylist
     val clothes = ArrayList<ClothesModel>()
 
     override fun findAll(): List<ClothesModel> {
         return clothes
     }
+
+    //add method
     override fun create(clothing: ClothesModel) {
         clothing.id = getId()
         clothes.add(clothing)
         logAll()
     }
 
+    //update method
     override fun update(clothing: ClothesModel) {
         var foundClothing: ClothesModel? = clothes.find { p -> p.id == clothing.id }
         if (foundClothing != null) {
             foundClothing.title = clothing.title
+            foundClothing.brand = clothing.brand
             foundClothing.colour = clothing.colour
             foundClothing.lat = clothing.lat
             foundClothing.lng = clothing.lng
@@ -38,6 +42,7 @@ class ClothesMemStore : ClothesStore, AnkoLogger {
         clothes.forEach { info("${it}") }
     }
 
+    //delete method
     override fun delete(clothing: ClothesModel) {
         clothes.remove(clothing)
     }
